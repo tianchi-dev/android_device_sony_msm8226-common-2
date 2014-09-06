@@ -32,15 +32,14 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := krait
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+TARGET_CPU_VARIANT := cortex-a7
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.write_protect=0 zcache
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags androidboot.write_protect=0 zcache
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -58,7 +57,6 @@ TARGET_KERNEL_MODULES += WLAN_MODULES
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
 AUDIO_FEATURE_DISABLED_SSR := true
-BOARD_HAVE_QCOM_FM := true
 BOARD_USES_ALSA_AUDIO := true
 TARGET_QCOM_AUDIO_VARIANT := caf
 
@@ -85,9 +83,6 @@ USE_OPENGL_RENDERER := true
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
-# Init
-TARGET_NR_SVC_SUPP_GIDS := 28
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
@@ -100,7 +95,6 @@ TARGET_USES_MOTOROLA_LOG := true
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
-TARGET_USES_CPU_BOOST_HINT := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -175,17 +169,14 @@ endif
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
-# USB
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
 # Vold
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 40
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
-BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
